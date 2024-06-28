@@ -6,21 +6,14 @@ import org.koreait.system.controller.SystemController;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class App {
-    private Scanner sc;
-
-    public App(Scanner sc) {   //생성자 = 객체 생성될때 자동실행되는 메소드
-        this.sc = sc;
-
-    }
 
     public void run() {
         System.out.println("== motivation execution ==");
 
         SystemController systemController = new SystemController();
-        MotivationController motivationController = new MotivationController(sc);
+        MotivationController motivationController = new MotivationController();
 
 
 
@@ -29,7 +22,7 @@ public class App {
 
         while (true) {
             System.out.print("command) ");
-            String cmd = sc.nextLine().trim();
+            String cmd = Container.getScanner().nextLine().trim();
 
             if (cmd.equals("exit")) {
                 systemController.exit();
