@@ -53,5 +53,22 @@ public class MotivationController {
     }
 
     public void delete(String cmd) {
+        String id = cmd.substring(10);
+//        Integer.parseInt(id);
+//        motivations.remove(id);
+
+        System.out.printf("%s번 motivation이 삭제 되었습니다\n", id);
+
+        // 입력된 id 값과 리스트에 있는값이 일치할때 삭제.
+//        System.out.println("삭제할 motivation의 id 값을 입력해주세요. ");
+//        System.out.print("id=");
+//        int id = Container.getScanner().nextInt();
+//        Motivation motivation = motivations.get(id);
+//
+//        if(id.equals(motivation)) {
+//            motivations.remove(id);
+//        }
+//        System.out.printf("%d번 motivation이 삭제 되었습니다\n", id);
+
     }
 }
