@@ -28,6 +28,7 @@ public class App {
             }
 
             // 기능
+            // 라우터 - 길안내
             switch (rq.getActionMethod()) {
                 case "exit":
                     systemController.exit();
