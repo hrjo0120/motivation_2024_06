@@ -38,7 +38,7 @@ public class MotivationController {
             return;
         }
         System.out.println("== motivation list ==");
-        System.out.printf("  id   //   source   //   body  \n");
+        System.out.print("  id   //   source   //   body  \n");
         System.out.println("=".repeat(35));
 
         for (int i = motivations.size() - 1; i >= 0; i--) {
@@ -75,6 +75,41 @@ public class MotivationController {
 
     }
 
+    public void edit(Rq rq) {
+        System.out.println("delete 실행");
+        int id;
+        try {
+            id = Integer.parseInt(rq.getParams("id"));
+        } catch (NumberFormatException e) {
+            System.out.println("정수 입력 오류");
+            return;
+        }
+
+        Motivation motivation = findById(id);
+
+        if (motivation == null) {
+            System.out.printf("%d번 motivation은 없어\n", id);
+            return;
+        }
+
+        // 불러온 motivation의 인스턴스 변수에 접근
+        System.out.println("body(기존) : " + motivation.getBody());
+        System.out.println("source(기존) : " + motivation.getSource());
+
+        System.out.print("body : ");
+        String body = Container.getScanner().nextLine();
+        System.out.print("source : ");
+        String source = Container.getScanner().nextLine();
+
+        motivation.setBody(body);
+        motivation.setSource(source);
+
+        System.out.printf("%d번 motivation을 수정했습니다.\n", id);
+
+    }
+
+
+    // 입력된 id와 일치하는 motivation 찾기
     private Motivation findById(int id) {
         for (Motivation motivation : motivations) {
             if (motivation.getId() == id) {
